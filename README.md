@@ -19,7 +19,12 @@ The overall objective is to go through the election results and calculate a few 
 ### Election Audit Results
 The analysis of the results is as follows:
 
+#### The output as seen in the terminal window
+
 ![Election Analysis Summary](https://github.com/dkatragadda/Election_Analysis/blob/main/Resources/Election_Results_Screenshot.png)
+
+#### The output as seen in the elections_results txt file in the Analysis folder
+![Election_Results_Text](https://github.com/dkatragadda/Election_Analysis/blob/main/Resources/Election_Results_text_Screenshot.png)
 
 ### Election Audit Summary
 This analysis uses the dataset 'Elections_results.csv'. We have utilized two packages 'os' and 'csv' to perform operations on the dataset. Using the for loop counters as we read through each row of the file, we have analysed the results and calculated the winner of the election and also sliced the data by the different counties in which the voting occured. Note that the output of the analysis can be altered by changing the dataset in the csv file. 
