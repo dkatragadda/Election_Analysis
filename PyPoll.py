@@ -57,42 +57,43 @@ with open(file_to_load,'r') as election_data:
             candidate_votes[candidate_name] = 0
 
         candidate_votes[candidate_name] += 1
-        
-# Determine the vote percentage for each candidate
-# 1. Iterate through the candidate list
-for candidate_name in candidate_votes:
-    # 2. Retrieve vote count for each candidate
-    votes=candidate_votes[candidate_name]
-    # 3. Calculate vote percentage
-    vote_percentage = float(votes)/float(total_votes) * 100
-    # 4. Print the candidate name and the vote percentage
-    print(f'{candidate_name}: received {vote_percentage:.1f}%  ({votes}) \n') 
 
-    # Determine winning vote count and candidate
-    if (votes>winning_count) and (vote_percentage>winning_percentage):
-        # If true set the votes as the winning count and the winning percentage
-        winning_count=votes
-        winning_percentage=vote_percentage
-        # Set the name of the winning candidate
-        winning_candidate = candidate_name
-
-# Print out the winning candidate
-winning_candidate_summary = (
-    f'----------------------------------\n'
-    f'Winner: {winning_candidate}\n'
-    f'Winning vote count: {winning_count}\n'
-    f'Winning vote percentage: {winning_percentage:.1f}\n'
-    f'----------------------------------\n')
-print(winning_candidate_summary)
-# print(f'The winning candidate is {winning_candidate} and received {winning_count} votes with {winning_percentage:.1f}% of the vote')
-    
 with open(file_to_save,'w') as election_output:
-    election_output.write('Counties in the election\n')
-    election_output.write('------------------------\n')
-    election_output.write('Arapahoe\n')
-    election_output.write('Denver\n')
-    election_output.write('Jefferson\n')
+    election_output.write('\n')
+    election_output.write('Election Results\n')
+    election_output.write('-------------------------------------------------------\n')
+    election_output.write(f'Total Votes: {total_votes}\n')
+    election_output.write('-------------------------------------------------------\n')
 
+    # Determine the vote percentage for each candidate
+    # 1. Iterate through the candidate list
+    for candidate_name in candidate_votes:
+        # 2. Retrieve vote count for each candidate
+        votes=candidate_votes[candidate_name]
+        # 3. Calculate vote percentage
+        vote_percentage = float(votes)/float(total_votes) * 100
+        # 4. Print the candidate name and the vote percentage
+        candidate_results = (f'{candidate_name}: received {vote_percentage:.1f}% ({votes}) \n') 
+        print(candidate_results)
+        election_output.write(f'{candidate_results}')
+
+        # Determine winning vote count and candidate
+        if (votes>winning_count) and (vote_percentage>winning_percentage):
+            # If true set the votes as the winning count and the winning percentage
+            winning_count=votes
+            winning_percentage=vote_percentage
+            # Set the name of the winning candidate
+            winning_candidate = candidate_name
+
+    # Print out the winning candidate
+    winning_candidate_summary = (
+        f'-------------------------------------------------------\n'
+        f'Winner: {winning_candidate}\n'
+        f'Winning vote count: {winning_count}\n'
+        f'Winning vote percentage: {winning_percentage:.1f}%\n'
+        f'-------------------------------------------------------\n')
+    election_output.write(winning_candidate_summary)
+    # print(f'The winning candidate is {winning_candidate} and received {winning_count} votes with {winning_percentage:.1f}% of the vote')
 
 election_data.close()
 election_output.close()
