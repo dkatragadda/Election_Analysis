@@ -1,6 +1,6 @@
 # Election_Analysis
 
-## Project Overview
+## Overview of Election Audit
 To complete the analysis of election results for the Colorado Board of Elections. 
 
 The overall objective is to go through the election results and calculate a few metrics and write the output to the file. The metrics to be calculated are:
@@ -15,12 +15,18 @@ The overall objective is to go through the election results and calculate a few 
 - Software: Python 3.8.5, Visual Studio Code
 
 ## Summary
+
+### Election Audit Results
 The analysis of the results is as follows:
 
-![Election Analysis Summary](https://github.com/dkatragadda/Election_Analysis/blob/main/Resources/Election_Analysis_Summary_Screenshot.png)
+#### The output as seen in the terminal window
 
-## Challenge Overview
-This module helped in getting started with Python. I learned the syntax used in the language to define and create variables. I was able to apply programming concepts previously learned such as using loops, performing calculations etc. I was also introduced to file handling using Python. We were able to successfully read the election results file and store the results in a newly created file. We were also exposed to the packages available in Python and learned how to use certain functions within packages which were readily available such as the csv package to perform operations on a csv file. 
+![Election Analysis Summary](https://github.com/dkatragadda/Election_Analysis/blob/main/Resources/Election_Results_Screenshot.png)
 
-## Challenge Summary
-I was able to successfully complete this challenge and calculate the winning percentage of the vote and identify the winner of the election. 
+#### The output as seen in the elections_results txt file in the Analysis folder
+![Election_Results_Text](https://github.com/dkatragadda/Election_Analysis/blob/main/Resources/Election_Results_text_Screenshot.png)
+
+### Election Audit Summary
+This analysis uses the dataset 'Elections_results.csv'. We have utilized two packages 'os' and 'csv' to perform operations on the dataset. Using the for loop counters as we read through each row of the file, we have analysed the results and calculated the winner of the election and also sliced the data by the different counties in which the voting occured. Note that the output of the analysis can be altered by changing the dataset in the csv file. 
+
+The script can be modified to display the output in a different format if required by the board. For ex: the sequence in which the output is printed in the file can be altered. Another change that can be made to the script would be to calculate the voter turnout by candidate in each county to determine where the candidates are receiving their votes. 
